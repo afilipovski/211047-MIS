@@ -7,7 +7,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
 
   @override
@@ -16,11 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Pokemon',
       initialRoute: '/',
       routes: {
-        '/' : (context) => const Home(),
+        '/': (context) => const Home(),
         '/details': (context) => const Details(),
       },
     );
   }
 }
-
-
