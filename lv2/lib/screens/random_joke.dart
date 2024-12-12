@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:new_flutter_project/services/api_service.dart';
-import 'dart:convert';
-
+import 'package:new_flutter_project/widgets/jokes/random_joke_card.dart';
 import '../models/joke_model.dart';
+import '../widgets/jokes/loading_indicator.dart';
 
 class JokeScreen extends StatefulWidget {
   const JokeScreen({super.key});
@@ -42,34 +41,8 @@ class _JokeScreenState extends State<JokeScreen> {
       ),
       body: Center(
         child: isLoading
-            ? CircularProgressIndicator()
-            : Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      joke?.setup ?? '',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      joke?.punchline ?? '',
-                      style: TextStyle(fontSize: 18.0, color: Colors.grey[800]),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 40),
-                    ElevatedButton(
-                      onPressed: setJoke,
-                      child: Text('Get Another Joke'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent),
-                    ),
-                  ],
-                ),
-              ),
+            ? const LoadingIndicator()
+            : RandomJokeCard(joke: joke!, onGetNewJoke: setJoke),
       ),
     );
   }
