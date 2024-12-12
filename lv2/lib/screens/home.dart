@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
-import '../widgets/pokemon/pokemon_grid.dart';
+import '../widgets/categories/category_grid.dart';
 import 'random_joke.dart';
 
 class Home extends StatefulWidget {
@@ -18,17 +18,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    getPokemonFromAPI();
-  }
-
-  void getPokemonFromAPI() async {
-    ApiService.getJokeCategories().then((response) {
-      var data = List.from(json.decode(response.body));
-      setState(() {
-        jokeCategories = data.map((element) => element as String).toList();
-        print(jokeCategories);
-      });
-    });
   }
 
   @override

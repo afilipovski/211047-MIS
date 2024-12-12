@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_project/widgets/pokemon/pokemon_card.dart';
+import 'package:new_flutter_project/widgets/categories/category_card.dart';
 
 class CategoriesGrid extends StatefulWidget {
   final List<String> categories;

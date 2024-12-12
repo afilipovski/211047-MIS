@@ -11,19 +11,6 @@ class ApiService {
     return response;
   }
 
-  static Future<dynamic> getAbilitiesForPokemon(String id) async {
-    final response =
-        await http.get(Uri.parse("https://pokeapi.co/api/v2/pokemon/$id"));
-    if (response.statusCode == 200) {
-      print("Success: ${response.body}");
-      var data = jsonDecode(response.body);
-      print("data $data");
-      return data;
-    } else {
-      throw Exception("Failed to load data!");
-    }
-  }
-
   static Future<List<Joke>> fetchJokes(String category) async {
     final url =
         Uri.parse('https://official-joke-api.appspot.com/jokes/$category/ten');

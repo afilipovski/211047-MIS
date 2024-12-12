@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_project/widgets/pokemon/pokemon_card_data.dart';
+import 'package:new_flutter_project/widgets/categories/joke_category_data.dart';
 
 import '../../screens/jokes.dart';
 
