@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:new_flutter_project/models/joke_model.dart';
+import 'package:new_flutter_project/services/api_service.dart';
 
 class JokesScreen extends StatefulWidget {
   final String category;
@@ -19,7 +21,7 @@ class _JokesScreenState extends State<JokesScreen> {
   void initState() {
     super.initState();
     currentCategory = widget.category;
-    jokesFuture = fetchJokes(currentCategory);
+    jokesFuture = ApiService.fetchJokes(currentCategory);
   }
 
   @override
@@ -28,21 +30,8 @@ class _JokesScreenState extends State<JokesScreen> {
     if (oldWidget.category != widget.category) {
       setState(() {
         currentCategory = widget.category;
-        jokesFuture = fetchJokes(currentCategory);
+        jokesFuture = ApiService.fetchJokes(currentCategory);
       });
-    }
-  }
-
-  Future<List<Joke>> fetchJokes(String category) async {
-    final url =
-        Uri.parse('https://official-joke-api.appspot.com/jokes/$category/ten');
-    final response = await http.get(url);
-
-    if (response.statusCode == 200) {
-      final List<dynamic> jokeList = json.decode(response.body);
-      return jokeList.map((json) => Joke.fromJson(json)).toList();
-    } else {
-      throw Exception('Failed to load jokes');
     }
   }
 
@@ -96,20 +85,6 @@ class _JokesScreenState extends State<JokesScreen> {
           }
         },
       ),
-    );
-  }
-}
-
-class Joke {
-  final String setup;
-  final String punchline;
-
-  Joke({required this.setup, required this.punchline});
-
-  factory Joke.fromJson(Map<String, dynamic> json) {
-    return Joke(
-      setup: json['setup'],
-      punchline: json['punchline'],
     );
   }
 }
