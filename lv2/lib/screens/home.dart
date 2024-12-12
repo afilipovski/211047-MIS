@@ -17,6 +17,14 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    ApiService.getJokeCategories().then((response) => {
+          if (response.statusCode == 200)
+            {
+              setState(() {
+                jokeCategories = json.decode(response.body).cast<String>();
+              })
+            }
+        });
     super.initState();
   }
 
