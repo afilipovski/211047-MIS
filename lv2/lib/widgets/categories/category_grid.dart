@@ -18,7 +18,7 @@ class _CategoriesGridState extends State<CategoriesGrid> {
         crossAxisSpacing: 4,
         mainAxisSpacing: 4,
         semanticChildCount: 250,
-        childAspectRatio: 200 / 244,
+        childAspectRatio: 800 / 244,
         shrinkWrap: true,
         children: widget.categories
             .map((category) => CategoryCard(

@@ -25,9 +25,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent[100],
-        leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu, color: Colors.white, size: 24)),
         title: const Text("Jokes app",
             style: TextStyle(
                 color: Colors.white,
@@ -42,7 +39,8 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(builder: (context) => JokeScreen()),
                 );
               },
-              icon: const Icon(Icons.settings, color: Colors.white, size: 24))
+              icon: const Icon(Icons.emoji_emotions,
+                  color: Colors.white, size: 24))
         ],
       ),
       body: CategoriesGrid(categories: jokeCategories),
