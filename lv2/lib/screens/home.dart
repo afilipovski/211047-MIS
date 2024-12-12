@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../widgets/pokemon/pokemon_grid.dart';
+import 'random_joke.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -46,7 +47,12 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JokeScreen()),
+                );
+              },
               icon: const Icon(Icons.settings, color: Colors.white, size: 24))
         ],
       ),
