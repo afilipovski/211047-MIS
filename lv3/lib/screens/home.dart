@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import '../models/joke_model.dart';
 import '../services/api_service.dart';
 import '../widgets/categories/category_grid.dart';
 import 'random_joke.dart';
+import 'favorites.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<String> jokeCategories = [];
+  final List<Joke> favoriteJokes = [];
 
   @override
   void initState() {
@@ -41,6 +44,17 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         actions: [
           IconButton(
+            icon: const Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoritesScreen(favoriteJokes: favoriteJokes),
+                ),
+              );
+            },
+          ),
+          IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -51,7 +65,19 @@ class _HomeState extends State<Home> {
                   color: Colors.white, size: 24))
         ],
       ),
-      body: CategoriesGrid(categories: jokeCategories),
+      body: CategoriesGrid(
+        categories: jokeCategories,
+        favoriteJokes: favoriteJokes,
+        onFavoriteToggle: (joke) {
+          setState(() {
+            if (favoriteJokes.contains(joke)) {
+              favoriteJokes.remove(joke);
+            } else {
+              favoriteJokes.add(joke);
+            }
+          });
+        },
+      ),
     );
   }
 }

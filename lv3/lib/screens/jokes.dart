@@ -5,8 +5,15 @@ import '../widgets/jokes/jokes_body.dart';
 
 class JokesScreen extends StatefulWidget {
   final String category;
+  final List<Joke> favoriteJokes;
+  final Function(Joke) onFavoriteToggle;
 
-  const JokesScreen({Key? key, required this.category}) : super(key: key);
+  const JokesScreen({
+    Key? key,
+    required this.category,
+    required this.favoriteJokes,
+    required this.onFavoriteToggle,
+  }) : super(key: key);
 
   @override
   _JokesScreenState createState() => _JokesScreenState();
@@ -40,7 +47,11 @@ class _JokesScreenState extends State<JokesScreen> {
       appBar: AppBar(
         title: Text('Jokes: ${widget.category}'),
       ),
-      body: JokesBody(jokesFuture: jokesFuture),
+      body: JokesBody(
+        jokesFuture: jokesFuture,
+        favoriteJokes: widget.favoriteJokes,
+        onFavoriteToggle: widget.onFavoriteToggle,
+      ),
     );
   }
 }
