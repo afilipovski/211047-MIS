@@ -4,16 +4,16 @@ import 'package:new_flutter_project/models/location.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
-class MapScreen extends StatefulWidget {
+class RouteVisualizationScreen extends StatefulWidget {
   final Location location;
 
-  const MapScreen({required this.location});
+  const RouteVisualizationScreen({required this.location});
 
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _RouteVisualizationScreenState createState() => _RouteVisualizationScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _RouteVisualizationScreenState extends State<RouteVisualizationScreen> {
   late GoogleMapController _mapController;
   Position? _currentPosition;
   final Set<Marker> _markers = {};

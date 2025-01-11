@@ -1,6 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:new_flutter_project/screens/calendarScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:timezone/data/latest.dart';
 import 'package:timezone/timezone.dart';
@@ -8,6 +7,8 @@ import 'firebase_options.dart';
 import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
+
+import 'screens/ExamTimetableScreen.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('Handling a background message: ${message.messageId}');
@@ -40,8 +41,7 @@ Future<void> main() async {
 
   String? token = await messaging.getToken();
 
-  FirebaseMessaging.instance.onTokenRefresh.listen((newToken) {
-  });
+  FirebaseMessaging.instance.onTokenRefresh.listen((newToken) {});
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
@@ -119,7 +119,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => CalendarScreen(),
+        '/': (context) => ExamTimetableScreen(),
       },
     );
   }

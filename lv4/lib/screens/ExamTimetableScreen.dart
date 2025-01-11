@@ -1,17 +1,17 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:new_flutter_project/main.dart';
+import 'package:new_flutter_project/screens/RouteVisualizationScreen.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:new_flutter_project/models/examSchedule.dart';
-import 'package:new_flutter_project/screens/MapScreen.dart';
+import '../models/location.dart';
 
-class CalendarScreen extends StatefulWidget {
+class ExamTimetableScreen extends StatefulWidget {
   @override
-  _CalendarScreenState createState() => _CalendarScreenState();
+  _ExamTimetableScreenState createState() => _ExamTimetableScreenState();
 }
 
-class _CalendarScreenState extends State<CalendarScreen> {
+class _ExamTimetableScreenState extends State<ExamTimetableScreen> {
   late Map<String, List<ExamSchedule>> _events = {};
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
@@ -23,12 +23,30 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
   Future<void> _fetchExamSchedules() async {
-    var snapshot = await FirebaseFirestore.instance.collection('exams').get();
+    List<ExamSchedule> examSchedules = [
+      ExamSchedule(
+        subject: 'Kalkulus',
+        dateTime: DateTime(2025, 01, 11, 10, 0),
+        location: Location(name: 'TMF', latitude: 42.0, longitude: 21.0),
+        id: '',
+      ),
+      ExamSchedule(
+        subject: 'Diskretna Matematika',
+        dateTime: DateTime(2025, 01, 11, 10, 0),
+        location: Location(name: 'MASHINSKI', latitude: 42.1, longitude: 21.1),
+        id: '',
+      ),
+      ExamSchedule(
+        subject: 'Operativni Sistemi',
+        dateTime: DateTime(2025, 01, 11, 10, 0),
+        location: Location(name: 'FINKI', latitude: 42.2, longitude: 21.2),
+        id: '',
+      ),
+    ];
+
     Map<String, List<ExamSchedule>> events = {};
 
-    for (var doc in snapshot.docs) {
-      var data = doc.data();
-      var exam = await ExamSchedule.fromMap(data);
+    for (var exam in examSchedules) {
       var date =
           DateTime(exam.dateTime.year, exam.dateTime.month, exam.dateTime.day);
       var dateKey = date.toIso8601String().substring(0, 10);
@@ -132,8 +150,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  MapScreen(location: exam.location),
+                              builder: (context) => RouteVisualizationScreen(
+                                  location: exam.location),
                             ),
                           );
                         },
