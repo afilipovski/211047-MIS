@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB__8ZA1nQ20sir0tV6sYB-EtX-QeH3Bes',
-    appId: '1:699828421058:android:73816534521f73c4e9d65b',
-    messagingSenderId: '699828421058',
-    projectId: 'mis-lv3',
-    storageBucket: 'mis-lv3.firebasestorage.app',
+    apiKey: '<API_KEY_HIDDEN_FOR_SECURITY>',
+    appId: '1:784482141240:android:3e1a698d07cc24a98ed2cd',
+    messagingSenderId: '784482141240',
+    projectId: 'mis-lv3-d79b3',
+    storageBucket: 'mis-lv3-d79b3.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBdNn3QihPnh8hpyehsHtdOHpfA6O0GYr8',
-    appId: '1:699828421058:ios:0a6f10e804f5d33ee9d65b',
-    messagingSenderId: '699828421058',
-    projectId: 'mis-lv3',
-    storageBucket: 'mis-lv3.firebasestorage.app',
+    apiKey: '<API_KEY_HIDDEN_FOR_SECURITY>',
+    appId: '1:784482141240:ios:5c20881cec24cf158ed2cd',
+    messagingSenderId: '784482141240',
+    projectId: 'mis-lv3-d79b3',
+    storageBucket: 'mis-lv3-d79b3.firebasestorage.app',
     iosBundleId: 'com.example.newFlutterProject',
   );
+
 }

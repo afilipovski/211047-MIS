@@ -33,6 +33,15 @@ class _HomeState extends State<Home> {
         });
     _notificationService.initialize();
     _notificationService.scheduleDailyNotification();
+    _sendStartupNotification();
+  }
+
+  void _sendStartupNotification() {
+    _notificationService.showNotification(
+      id: 0,
+      title: 'Welcome',
+      body: 'Welcome to the Jokes app!',
+    );
   }
 
   @override
