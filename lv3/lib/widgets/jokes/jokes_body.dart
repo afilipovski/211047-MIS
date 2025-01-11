@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter_project/widgets/error.dart';
-import 'package:new_flutter_project/widgets/jokes/jokes_list.dart';
 
 import '../../models/joke_model.dart';
 

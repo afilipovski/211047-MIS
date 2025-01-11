@@ -6,6 +6,7 @@ import '../services/api_service.dart';
 import '../widgets/categories/category_grid.dart';
 import 'random_joke.dart';
 import 'favorites.dart';
+import 'package:new_flutter_project/notifications/notification_service.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,9 +18,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<String> jokeCategories = [];
   final List<Joke> favoriteJokes = [];
+  final NotificationService _notificationService = NotificationService();
 
   @override
   void initState() {
+    super.initState();
     ApiService.getJokeCategories().then((response) => {
           if (response.statusCode == 200)
             {
@@ -28,7 +31,8 @@ class _HomeState extends State<Home> {
               })
             }
         });
-    super.initState();
+    _notificationService.initialize();
+    _notificationService.scheduleDailyNotification();
   }
 
   @override
@@ -49,7 +53,8 @@ class _HomeState extends State<Home> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FavoritesScreen(favoriteJokes: favoriteJokes),
+                  builder: (context) =>
+                      FavoritesScreen(favoriteJokes: favoriteJokes),
                 ),
               );
             },
