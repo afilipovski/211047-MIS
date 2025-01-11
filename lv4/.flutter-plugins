@@ -1,0 +1,21 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=/Users/aleksandar/.pub-cache/hosted/pub.dev/cloud_firestore-5.6.1/
+cloud_firestore_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/cloud_firestore_web-4.4.1/
+firebase_auth=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_auth-5.4.0/
+firebase_auth_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_auth_web-5.13.6/
+firebase_core=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_core-3.10.0/
+firebase_core_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_core_web-2.19.0/
+firebase_messaging=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_messaging-15.2.0/
+firebase_messaging_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.10.0/
+flutter_local_notifications=/Users/aleksandar/.pub-cache/hosted/pub.dev/flutter_local_notifications-18.0.1/
+flutter_local_notifications_linux=/Users/aleksandar/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-5.0.0/
+flutter_plugin_android_lifecycle=/Users/aleksandar/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.24/
+geolocator=/Users/aleksandar/.pub-cache/hosted/pub.dev/geolocator-13.0.2/
+geolocator_android=/Users/aleksandar/.pub-cache/hosted/pub.dev/geolocator_android-4.6.1/
+geolocator_apple=/Users/aleksandar/.pub-cache/hosted/pub.dev/geolocator_apple-2.3.8+1/
+geolocator_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/geolocator_web-4.1.1/
+geolocator_windows=/Users/aleksandar/.pub-cache/hosted/pub.dev/geolocator_windows-0.2.3/
+google_maps_flutter=/Users/aleksandar/.pub-cache/hosted/pub.dev/google_maps_flutter-2.10.0/
+google_maps_flutter_android=/Users/aleksandar/.pub-cache/hosted/pub.dev/google_maps_flutter_android-2.14.12/
+google_maps_flutter_ios=/Users/aleksandar/.pub-cache/hosted/pub.dev/google_maps_flutter_ios-2.13.2/
+google_maps_flutter_web=/Users/aleksandar/.pub-cache/hosted/pub.dev/google_maps_flutter_web-0.5.10/

@@ -1,3 +1,6 @@
 lv3/.flutter-plugins-dependencies
 lv3/android/app/google-services.json
 lv3/ios/Runner/GoogleService-Info.plist
+lv4/android/app/google-services.json
+lv4/ios/Runner/GoogleService-Info.plist
+lv4/.flutter-plugins-dependencies
